@@ -2,6 +2,7 @@ import React from 'react';
 import Banner, { EBannerStyleType } from '../Utilities/Banner';
 import { DarkMode } from '../Utilities/DarkMode';
 import Header from '../Utilities/Header';
+import SkipToLink from '../Utilities/SkipToLink';
 
 interface IProps {
   children: React.ReactChild;
@@ -27,7 +28,7 @@ const bannerData = {
 const Layout = ({ children, useHeader = true, contentID = '' }: IProps) => {
   return (
     <div className="">
-      {contentID !== '' && <a href={`#${contentID}`}>Skip To Content</a>}
+      {contentID !== '' && <SkipToLink href={`#${contentID}`} />}
       <Banner {...bannerData} />
       <DarkMode />
       {useHeader && <Header />}

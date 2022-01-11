@@ -12,9 +12,11 @@ const shortcodes = {
 
 const MdxLayout = ({ children }) => {
   return (
-    <Layout>
+    <Layout contentID="content">
       <MDXProvider components={shortcodes}>
-        <MDXRenderer>{children}</MDXRenderer>
+        <main id="content">
+          <MDXRenderer>{children}</MDXRenderer>
+        </main>
       </MDXProvider>
     </Layout>
   );
