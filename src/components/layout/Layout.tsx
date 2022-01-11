@@ -1,10 +1,12 @@
 import React from 'react';
 import Banner, { EBannerStyleType } from '../Utilities/Banner';
 import { DarkMode } from '../Utilities/DarkMode';
+import Header from '../Utilities/Header';
 
 interface IProps {
   children: React.ReactChild;
   useHeader?: boolean;
+  contentID?: string;
 }
 
 const bannerData = {
@@ -22,13 +24,14 @@ const bannerData = {
   },
 };
 
-const Layout = ({ children, useHeader = true }: IProps) => {
+const Layout = ({ children, useHeader = true, contentID = '' }: IProps) => {
   return (
     <div className="">
+      {contentID !== '' && <a href={`#${contentID}`}>Skip To Content</a>}
       <Banner {...bannerData} />
       <DarkMode />
-      {useHeader && <nav>NAV</nav>}
-      <div className="container mx-auto">{children}</div>
+      {useHeader && <Header />}
+      <div className="container mx-auto px-2">{children}</div>
     </div>
   );
 };
