@@ -22,7 +22,13 @@ module.exports = {
         icon: 'src/images/icon.png',
       },
     },
-    'gatsby-plugin-mdx',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/data/posts`,
+        name: `blog`,
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -30,6 +36,12 @@ module.exports = {
         path: './src/pages/',
       },
       __key: 'pages',
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+      },
     },
     {
       resolve: `gatsby-plugin-offline`,
@@ -61,7 +73,7 @@ module.exports = {
                   date: node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  custom_elements: [{ 'content:encoded': node.html }],
+                  custom_elements: [{ 'content:encoded': node.body }],
                 });
               });
             },
@@ -72,14 +84,15 @@ module.exports = {
                 ) {
                   nodes {
                     excerpt
-                    html
-                    fields { 
-                      slug 
-                    }
+                    slug
                     frontmatter {
                       title
                       date
                     }
+                    fields {
+                      slug
+                    }
+                    body
                   }
                 }
               }
