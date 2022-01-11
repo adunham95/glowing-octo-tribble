@@ -22,7 +22,7 @@ const bannerData = {
   },
 };
 
-const Layout = ({ children }: IProps) => {
+const Layout = ({ children, useHeader = false }: IProps) => {
   return (
     <div className="">
       <Banner {...bannerData} />
