@@ -5,11 +5,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 const MDXPostTemplate = ({ data, pageContext, location }) => {
   const body = data.mdx.body;
-  return (
-    <MdxLayout>
-      <MDXRenderer>{body}</MDXRenderer>
-    </MdxLayout>
-  );
+  return <MdxLayout>{body}</MdxLayout>;
 };
 
 export default MDXPostTemplate;
