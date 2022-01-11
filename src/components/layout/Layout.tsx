@@ -4,7 +4,7 @@ import { DarkMode } from '../Utilities/DarkMode';
 
 interface IProps {
   children: React.ReactChild;
-  useHeader: boolean;
+  useHeader?: boolean;
 }
 
 const bannerData = {
@@ -27,6 +27,7 @@ const Layout = ({ children, useHeader = false }: IProps) => {
     <div className="">
       <Banner {...bannerData} />
       <DarkMode />
+      {useHeader && <nav>NAV</nav>}
       <div className="container mx-auto">{children}</div>
     </div>
   );
