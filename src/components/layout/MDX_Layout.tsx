@@ -2,7 +2,12 @@ import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import MdxTest from '../Utilities/MDXTest';
 import Layout from './Layout';
-const shortcodes = { MdxTest };
+import Code from '../Post Components/Code';
+
+const shortcodes = {
+  pre: Code,
+  MdxTest,
+};
 
 const MdxLayout = ({ children }) => {
   return (
