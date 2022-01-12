@@ -1,7 +1,7 @@
 import React from 'react';
 import Banner, { EBannerStyleType } from '../Utilities/Banner/Banner';
 import { DarkMode } from '../Utilities/DarkMode';
-import Header from '../Utilities/Header';
+import Header from '../Utilities/Header/Header';
 import SkipToLink from '../Utilities/SkipToLink';
 
 interface IProps {
