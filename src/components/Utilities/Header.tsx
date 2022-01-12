@@ -1,4 +1,4 @@
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
+import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import React, { useState } from 'react';
 
 const navigation = [
