@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import PostTitle from './PostTitle';
 
 export default {
-  title: 'Layout/PostTitle',
+  title: 'Post Component/PostTitle',
   component: PostTitle,
 // eslint-disable-next-line prettier/prettier
 } as ComponentMeta<typeof PostTitle>;
