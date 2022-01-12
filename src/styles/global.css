@@ -7,4 +7,27 @@
         @apply not-sr-only rounded ring-1 ring-sky-500 py-1 px-2 mt-1 ml-1 text-sky-400 bg-white absolute;
         z-index: 1000;
     }
-  }
+    .page-container{
+        @apply w-full;
+    }
+    @media screen and (max-width: 640px)  {
+        .page-container{
+            max-width: 640px;
+        }
+    };
+    @media screen and (max-width: 768px)  {
+        .page-container{
+            max-width: 768px;
+        }
+    };
+    @media screen and (max-width: 1024px)  {
+        .page-container{
+            max-width: 1024px;
+        }
+    };
+    @media screen and (min-width: 1280px)  {
+        .page-container{
+            max-width: 1280px;
+        }
+    };
+}

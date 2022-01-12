@@ -1,6 +1,7 @@
 import React from 'react';
 import Banner, { EBannerStyleType } from '../Utilities/Banner/Banner';
 import { DarkMode } from '../Utilities/DarkMode';
+import Footer from '../Utilities/Footer';
 import Header from '../Utilities/Header/Header';
 import SkipToLink from '../Utilities/SkipToLink';
 
@@ -32,7 +33,8 @@ const Layout = ({ children, useHeader = true, contentID = '' }: IProps) => {
       <Banner {...bannerData} />
       <DarkMode />
       {useHeader && <Header />}
-      <div className="container mx-auto px-2">{children}</div>
+      <div className="page-container mx-auto px-2">{children}</div>
+      <Footer />
     </div>
   );
 };

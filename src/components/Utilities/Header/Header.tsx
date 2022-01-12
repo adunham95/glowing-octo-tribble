@@ -19,8 +19,8 @@ export interface ILink {
 }
 
 interface IProps {
-  navLinks: Array<ILink>;
-  pageName: string;
+  navLinks?: Array<ILink>;
+  pageName?: string;
 }
 
 const Header = ({
