@@ -2,6 +2,11 @@ module.exports = {
   siteMetadata: {
     siteUrl: 'https://www.yourdomain.tld',
     title: 'Personal Website',
+    twitterUsername: '@adunham95',
+    titleTemplate: '%s · The Real Hero',
+    description:
+      'Hogwarts Potions master, Head of Slytherin house and former Death Eater.',
+    url: 'https://www.yourdomain.tld',
   },
   plugins: [
     {
