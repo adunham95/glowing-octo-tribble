@@ -73,11 +73,15 @@ const Banner = ({
   copy,
 }: IProps) => {
   const [bannerIds, setBannerIds] = useState([]);
-  const [showBanner, setShowBanner] = useState(false);
+  const [showBanner, setShowBanner] = useState(true);
 
   useLayoutEffect(() => {
     const banners = localStorage.getItem('bannerIds');
     if (banners) {
+      if (id === 'test') {
+        setShowBanner(true);
+        return;
+      }
       const selectedBanners = JSON.parse(banners);
       setBannerIds(selectedBanners);
       if (!selectedBanners.includes(id)) {
