@@ -1,10 +1,12 @@
 module.exports = {
-  parser: '@typescript-eslint/parser', // Specifies the ESLint parser
+  parser: '@typescript-eslint/parser',
+  // Specifies the ESLint parser
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
+    'plugin:storybook/recommended',
   ],
   settings: {
     react: {
@@ -21,15 +23,19 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
+    ecmaVersion: 2018,
+    // Allows for the parsing of modern ECMAScript features
     sourceType: 'module', // Allows for the use of imports
   },
   rules: {
-    'react/prop-types': 'off', // Disable prop-types as we use TypeScript for type checking
+    'react/prop-types': 'off',
+    // Disable prop-types as we use TypeScript for type checking
     '@typescript-eslint/explicit-function-return-type': 'off',
     'react/jsx-filename-extension': [
       1,
-      { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
+      {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
     ],
     'no-unused-vars': 0,
     'jsx-a11y/anchor-is-valid': 0,
@@ -37,7 +43,8 @@ module.exports = {
     'react/button-has-type': 0,
     'max-len': 0,
     'jsx-a11y/label-has-associated-control': 0,
-    'comma-dangle': [1, 'always-multiline'], // allow or disallow trailing commas
+    'comma-dangle': [1, 'always-multiline'],
+    // allow or disallow trailing commas
     'no-useless-catch': 0,
     'import/prefer-default-export': 0,
     'react/jsx-props-no-spreading': 0,
@@ -50,10 +57,21 @@ module.exports = {
     'func-names': 'off',
     'import/no-unresolved': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 0,
-    'react/no-unstable-nested-components': ['off', { allowAsProps: true }],
+    'react/no-unstable-nested-components': [
+      'off',
+      {
+        allowAsProps: true,
+      },
+    ],
     'react/no-unescaped-entities': 'off',
     'react/jsx-first-prop-new-line': [2, 'multiline'],
-    'react/jsx-max-props-per-line': [2, { maximum: 1, when: 'multiline' }],
+    'react/jsx-max-props-per-line': [
+      2,
+      {
+        maximum: 1,
+        when: 'multiline',
+      },
+    ],
     'react/jsx-indent-props': [2, 2],
     'react/jsx-closing-bracket-location': [2, 'tag-aligned'],
     'prettier/prettier': [
