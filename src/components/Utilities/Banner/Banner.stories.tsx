@@ -40,3 +40,16 @@ Success.args = {
   bannerType: EBannerStyleType.SUCCESS,
   id: 'test',
 };
+
+export const Custom = Template.bind({});
+Custom.args = {
+  bannerType: EBannerStyleType.CUSTOM,
+  id: 'test',
+  customStyles: {
+    background: 'bg-fuchsia-600',
+    iconColor: 'bg-fuchsia-800',
+    text: 'text-white',
+    button: 'text-fuchsia-600 bg-white hover:bg-fuchsia-50',
+    close: 'hover:bg-fuchsia-500 focus:ring-white',
+  },
+};
