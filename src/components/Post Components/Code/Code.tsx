@@ -1,7 +1,7 @@
 /* eslint-disable*/
 import React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/vsDark';
+import vsCodeTheme from './themes/vsCodeTheme';
 
 export default (props) => {
   const className = props.children.props.className || '';
@@ -16,7 +16,7 @@ export default (props) => {
           ? matches.groups.lang
           : ''
       }
-      theme={theme}
+      theme={vsCodeTheme}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={className} style={{ ...style, padding: '20px' }}>
