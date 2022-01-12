@@ -1,11 +1,15 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import MdxLayout from '../components/layout/MDX_Layout';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-
+import PostTitle from '../components/Post Components/PostTitle/PostTitle';
 const MDXPostTemplate = ({ data, pageContext, location }) => {
-  const body = data.mdx.body;
-  return <MdxLayout>{body}</MdxLayout>;
+  const post = data.mdx;
+  return (
+    <MdxLayout>
+      <PostTitle title={post.frontmatter.title} />
+      {post.body}
+    </MdxLayout>
+  );
 };
 
 export default MDXPostTemplate;
