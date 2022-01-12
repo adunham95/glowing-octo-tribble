@@ -14,7 +14,7 @@ const MdxLayout = ({ children }) => {
   return (
     <Layout contentID="content">
       <MDXProvider components={shortcodes}>
-        <main id="content">
+        <main id="content" className="prose">
           <MDXRenderer>{children}</MDXRenderer>
         </main>
       </MDXProvider>
