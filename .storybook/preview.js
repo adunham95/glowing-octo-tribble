@@ -2,6 +2,12 @@ import { configure, addParameters } from "@storybook/react"
 import { addDecorator } from "@storybook/react"
 import React from "react"
 import "../src/styles/global.css"
+
+
+export const globalTypes = {
+  darkMode: true,
+};
+
 function withGlobalStyles(storyFn) {
   return (
     <React.Fragment>

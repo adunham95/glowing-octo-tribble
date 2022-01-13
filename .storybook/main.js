@@ -6,6 +6,9 @@ module.exports = {
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
+    'storybook-addon-themes',
+    'storybook-tailwind-dark-mode',
+    'storybook-dark-mode',
     {
       name: '@storybook/addon-postcss',
       options: {
