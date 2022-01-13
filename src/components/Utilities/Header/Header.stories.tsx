@@ -6,6 +6,9 @@ import Header from './Header';
 export default {
   title: 'Layout/Header',
   component: Header,
+  parameters: {
+    layout: 'fullscreen',
+  },
 // eslint-disable-next-line prettier/prettier
 } as ComponentMeta<typeof Header>;
 

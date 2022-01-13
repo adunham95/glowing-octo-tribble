@@ -6,6 +6,9 @@ import Banner, { EBannerStyleType } from './Banner';
 export default {
   title: 'Layout/Banner',
   component: Banner,
+  parameters: {
+    layout: 'fullscreen',
+  },
 // eslint-disable-next-line prettier/prettier
 } as ComponentMeta<typeof Banner>;
 
