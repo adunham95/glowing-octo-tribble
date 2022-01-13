@@ -1,11 +1,10 @@
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import { Link } from 'gatsby';
 import React, { useState } from 'react';
 
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Home', href: '/' },
+  { name: 'Google', href: 'https://google.com', external: true },
 ];
 
 function classNames(...classes) {
@@ -15,7 +14,7 @@ function classNames(...classes) {
 export interface ILink {
   name: string;
   href: string;
-  current: boolean;
+  external?: boolean;
 }
 
 interface IProps {
@@ -53,24 +52,34 @@ const Header = ({
             </div>
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4 h-full">
-                {navLinks.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className={classNames(
-                      item.current ? 'border-blue-400' : 'border-transparent',
-                      'flex items-center relative text-black dark:text-white border-b-2 hover:border-blue-400'
-                    )}
-                    aria-current={item.current ? 'page' : undefined}
-                  >
-                    <span className="px-3 py-2 rounded-md text-sm font-medium">
-                      {item.name}
-                    </span>
-                    {/* {item.current && (
-                      <span className="absolute bottom-1 h-[2px] bg-blue-400 w-full"></span>
-                    )} */}
-                  </a>
-                ))}
+                {navLinks.map((item) =>
+                  item?.external ? (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className={classNames(
+                        'border-transparent',
+                        'flex items-center relative text-black dark:text-white border-b-2 hover:border-blue-400'
+                      )}
+                      aria-current={undefined}
+                    >
+                      <span className="px-3 py-2 rounded-md text-sm font-medium">
+                        {item.name}
+                      </span>
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className="flex items-center relative text-black dark:text-white border-b-2 hover:border-blue-400 border-transparent"
+                      activeClassName="border-blue-400"
+                    >
+                      <span className="px-3 py-2 rounded-md text-sm font-medium">
+                        {item.name}
+                      </span>
+                    </Link>
+                  )
+                )}
               </div>
             </div>
           </div>
@@ -83,21 +92,32 @@ const Header = ({
         }`}
       >
         <div className="px-2 pt-2 pb-3 space-y-1 shadow-lg">
-          {navLinks.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className={classNames(
-                item.current
-                  ? 'bg-gray-900 text-white'
-                  : 'text-black dark:text-gray-300',
-                'block px-3 py-2 rounded-md text-base font-medium'
-              )}
-              aria-current={item.current ? 'page' : undefined}
-            >
-              {item.name}
-            </a>
-          ))}
+          {navLinks.map((item) =>
+            item?.external ? (
+              <a
+                key={item.name}
+                href={item.href}
+                className={classNames(
+                  'text-black dark:text-gray-300',
+                  'block px-3 py-2 rounded-md text-base font-medium'
+                )}
+                aria-current={undefined}
+              >
+                {item.name}
+              </a>
+            ) : (
+              <Link
+                key={item.name}
+                to={item.href}
+                className="flex items-center relative text-black dark:text-white border-b-2 hover:border-blue-400 border-transparent"
+                activeClassName="bg-gray-900 text-white"
+              >
+                <span className="px-3 py-2 rounded-md text-sm font-medium">
+                  {item.name}
+                </span>
+              </Link>
+            )
+          )}
         </div>
       </div>
     </nav>

@@ -18,6 +18,6 @@ export const Primary = Template.bind({});
 Primary.args = {
     pageName: "Adrian's Blog",
     navLinks: [
-        { name: 'Dashboard', href: '#', current: true },
+        { name: 'Dashboard', href: '#', external: false },
     ],
 };
