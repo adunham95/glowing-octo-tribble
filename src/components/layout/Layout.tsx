@@ -1,4 +1,5 @@
 import React from 'react';
+import SEO from '../Post Components/SEO';
 import Banner, { EBannerStyleType } from '../Utilities/Banner/Banner';
 import { DarkMode } from '../Utilities/DarkMode';
 import Footer from '../Utilities/Footer';
@@ -29,6 +30,7 @@ const bannerData = {
 const Layout = ({ children, useHeader = true, contentID = '' }: IProps) => {
   return (
     <div className="">
+      <SEO />
       {contentID !== '' && <SkipToLink href={`#${contentID}`} />}
       <Banner {...bannerData} />
       <DarkMode />

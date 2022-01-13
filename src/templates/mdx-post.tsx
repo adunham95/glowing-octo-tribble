@@ -4,11 +4,13 @@ import MdxLayout from '../components/layout/MDX_Layout';
 import PostTitle from '../components/Post Components/PostTitle/PostTitle';
 import Pill, { EPillStyle } from '../components/Post Components/Pill';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import SEO from '../components/Post Components/SEO';
 const MDXPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx;
   console.log(post);
   return (
     <MdxLayout>
+      <SEO title={post.frontmatter.title} />
       <PostTitle title={post.frontmatter.title} />
       <div>
         <Pill text="Test" />
