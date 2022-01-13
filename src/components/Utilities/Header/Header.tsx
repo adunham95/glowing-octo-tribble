@@ -30,7 +30,7 @@ const Header = ({
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-gray-800 sticky top-0 z-50">
+    <nav className="bg-white sticky top-0 z-50 shadow-lg dark:bg-black">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 h-[60px]">
         <div className="relative flex items-center justify-between h-16">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -47,25 +47,28 @@ const Header = ({
               )}
             </button>
           </div>
-          <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+          <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start h-full mb-2">
             <div className="flex-shrink-0 flex items-center">
-              <span className="text-white">{pageName}</span>
+              <span className="text-black dark:text-white">{pageName}</span>
             </div>
             <div className="hidden sm:block sm:ml-6">
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 h-full">
                 {navLinks.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
                     className={classNames(
-                      item.current
-                        ? 'bg-gray-900 text-white'
-                        : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                      'px-3 py-2 rounded-md text-sm font-medium',
+                      item.current ? 'border-blue-400' : 'border-transparent',
+                      'flex items-center relative text-black dark:text-white border-b-2 hover:border-blue-400'
                     )}
                     aria-current={item.current ? 'page' : undefined}
                   >
-                    {item.name}
+                    <span className="px-3 py-2 rounded-md text-sm font-medium">
+                      {item.name}
+                    </span>
+                    {/* {item.current && (
+                      <span className="absolute bottom-1 h-[2px] bg-blue-400 w-full"></span>
+                    )} */}
                   </a>
                 ))}
               </div>
@@ -75,11 +78,11 @@ const Header = ({
       </div>
 
       <div
-        className={`sm:hidden fixed w-full bg-gray-800 z-[45] ${
+        className={`sm:hidden fixed w-full bg-white dark:bg-black z-[45] ${
           open ? 'top-[60px]' : 'top-[-100%]'
         }`}
       >
-        <div className="px-2 pt-2 pb-3 space-y-1">
+        <div className="px-2 pt-2 pb-3 space-y-1 shadow-lg">
           {navLinks.map((item) => (
             <a
               key={item.name}
@@ -87,7 +90,7 @@ const Header = ({
               className={classNames(
                 item.current
                   ? 'bg-gray-900 text-white'
-                  : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                  : 'text-black dark:text-gray-300',
                 'block px-3 py-2 rounded-md text-base font-medium'
               )}
               aria-current={item.current ? 'page' : undefined}
