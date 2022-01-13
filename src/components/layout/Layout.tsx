@@ -33,7 +33,9 @@ const Layout = ({ children, useHeader = true, contentID = '' }: IProps) => {
       <Banner {...bannerData} />
       <DarkMode />
       {useHeader && <Header />}
-      <div className="page-container mx-auto px-2">{children}</div>
+      <div className="page-container min-h-[calc(100vh-92px-30px)] mx-auto px-2">
+        {children}
+      </div>
       <Footer />
     </div>
   );
