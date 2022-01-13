@@ -58,6 +58,45 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-my-social-cards`,
+      options: {
+        query: `
+        {
+          allMdx {
+            edges {
+              node {
+                fields {
+                  slug
+                }
+                frontmatter {
+                  title
+                }
+              }
+            }
+          }
+        }
+          `,
+        queryToPages: (result) =>
+          result.data.allMdx.edges.map((edge) => {
+            console.log('node data', edge.node);
+            const slugWithoutSlashes = edge.node.fields?.slug.replace(
+              /\//g,
+              '',
+            );
+            return {
+              slug: `/${slugWithoutSlashes}`,
+              pageContext: {
+                title: edge.node.frontmatter?.title,
+              },
+            };
+          }),
+        component: require.resolve(
+          './src/components/Utilities/SocialCard/index.tsx'
+        ),
+        cardLimit: 0, // Useful for debugging.
+      },
+    },
+    {
       resolve: `gatsby-plugin-offline`,
       options: {
         precachePages: [`/about-us/`, `/projects/*`, '/404'],
