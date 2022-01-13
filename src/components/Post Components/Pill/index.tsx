@@ -1,63 +1,55 @@
 import React from 'react';
 
-export enum EPillType {
-  WARN = 'warn',
-  ERROR = 'error',
-  INFO = 'info',
-  SUCCESS = 'success',
-  CUSTOM = 'custom',
-}
-
-interface IPillStyle {
-  border: string;
-  text: string;
+export enum EPillStyle {
+  FILLED = 'filled',
+  BORDER = 'border',
 }
 
 interface IProps {
-  pillType: EPillType;
+  style?: EPillStyle;
   text: string;
-  style?: IPillStyle;
+  color?: string;
   size?: 'S' | 'M' | 'L' | 'XL';
 }
 
-const defaultStyles = {
-  info: {
-    border: 'border-blue-500',
-    text: 'text-blue-500',
-  },
-  success: {
-    border: 'border-green-500',
-    text: 'text-green-500',
-  },
-  warn: {
-    border: 'border-amber-500',
-    text: 'text-amber-500',
-  },
-  error: {
-    border: 'border-red-500',
-    text: 'text-red-500',
-  },
-};
+function pickTextColorBasedOnBgColorAdvanced(bgColor, lightColor, darkColor) {
+  const color = bgColor.charAt(0) === '#' ? bgColor.substring(1, 7) : bgColor;
+  const r = parseInt(color.substring(0, 2), 16); // hexToR
+  const g = parseInt(color.substring(2, 4), 16); // hexToG
+  const b = parseInt(color.substring(4, 6), 16); // hexToB
+  const uicolors = [r / 255, g / 255, b / 255];
+  const c = uicolors.map((col) => {
+    if (col <= 0.03928) {
+      return col / 12.92;
+    }
+    return Math.pow((col + 0.055) / 1.055, 2.4);
+  });
+  const L = 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+  return L > 0.179 ? darkColor : lightColor;
+}
 
 const Pill = ({
-  pillType = EPillType.INFO,
   text,
-  style,
   size = 'S',
+  color = '#8A2BE2',
+  style = EPillStyle.BORDER,
 }: IProps) => {
-  const setPillType = () => {
-    switch (pillType) {
-      case EPillType.CUSTOM:
-        return Object.values({ ...defaultStyles.info, ...style }).join(' ');
-      case EPillType.SUCCESS:
-        return Object.values(defaultStyles.success).join(' ');
-      case EPillType.WARN:
-        return Object.values(defaultStyles.warn).join(' ');
-      case EPillType.ERROR:
-        return Object.values(defaultStyles.error).join(' ');
+  const getPillStyles = () => {
+    switch (style) {
+      case EPillStyle.FILLED:
+        return `border-[color:var(--pill-color)] bg-[color:var(--pill-color)] ${pickTextColorBasedOnBgColorAdvanced(
+          color,
+          'text-white',
+          'text-black',
+        )}`;
+
       default:
-        return Object.values(defaultStyles.info).join(' ');
+        return 'border-[color:var(--pill-color)] text-[color:var(--pill-color)]';
     }
+  };
+
+  const setPillColor = () => {
+    return { '--pill-color': color };
   };
 
   const getPillSize = () => {
@@ -75,7 +67,8 @@ const Pill = ({
 
   return (
     <span
-      className={`rounded-full border-2 border-solid py-1 px-3 ${getPillSize()} mr-1 ${setPillType()}`}
+      style={{ ...setPillColor() }}
+      className={`rounded-full border-2 border-solid py-1 px-3 ${getPillSize()} mr-1 ${getPillStyles()}`}
     >
       {text}
     </span>
