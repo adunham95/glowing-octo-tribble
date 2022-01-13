@@ -6,6 +6,7 @@ import Pill, { EPillStyle } from '../components/Post Components/Pill';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 const MDXPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx;
+  console.log(post);
   return (
     <MdxLayout>
       <PostTitle title={post.frontmatter.title} />
