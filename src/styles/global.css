@@ -4,7 +4,7 @@
 
 @layer utilities {
     .skip-link {
-        @apply not-sr-only rounded ring-1 ring-sky-500 py-1 px-2 mt-1 ml-1 text-sky-400 bg-white absolute;
+        @apply not-sr-only rounded ring-1 ring-brand-500 py-1 px-2 mt-1 ml-1 text-brand-400 bg-brand-light-500 dark:bg-brand-dark-500 absolute;
         z-index: 1000;
     }
     .page-container{
