@@ -49,7 +49,7 @@ const Header = ({
           </div>
           <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start h-full mb-2">
             <div className="flex-shrink-0 flex items-center">
-              <span className=" pr-1">
+              <span className="sm:pr-1">
                 <IconBrand />
               </span>
               <span className="text-brand-dark-500 dark:text-brand-light-500 hidden sm:block">
