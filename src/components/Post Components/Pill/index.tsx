@@ -31,7 +31,7 @@ function pickTextColorBasedOnBgColorAdvanced(bgColor, lightColor, darkColor) {
 const Pill = ({
   text,
   size = 'S',
-  color = '#8A2BE2',
+  color = '#3490de',
   style = EPillStyle.BORDER,
 }: IProps) => {
   const getPillStyles = () => {
