@@ -16,7 +16,7 @@ const Template: ComponentStory<typeof Banner> = (args) => <Banner {...args}/>
 
 export const Primary = Template.bind({});
 Primary.args = {
-    bannerType: EBannerStyleType.INFO,
+    bannerType: EBannerStyleType.BRAND,
     id: 'test',
 };
 

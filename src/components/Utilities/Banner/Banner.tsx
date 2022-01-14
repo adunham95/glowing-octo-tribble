@@ -14,6 +14,7 @@ interface IStyles {
   error: IStyle;
   warn: IStyle;
   success: IStyle;
+  brand: IStyle;
 }
 
 export enum EBannerStyleType {
@@ -22,6 +23,7 @@ export enum EBannerStyleType {
   INFO = 'info',
   SUCCESS = 'success',
   CUSTOM = 'custom',
+  BRAND = 'brand',
 }
 
 interface IProps {
@@ -61,6 +63,13 @@ const styles: IStyles = {
     text: 'text-white',
     button: 'text-green-600 bg-white hover:bg-green-50',
     close: 'hover:bg-green-500',
+  },
+  brand: {
+    background: 'bg-brand-600',
+    iconColor: 'bg-brand-800',
+    text: 'text-white',
+    button: 'text-brand-600 bg-white hover:bg-brand-50',
+    close: 'hover:bg-brand-500',
   },
 };
 
@@ -104,8 +113,10 @@ const Banner = ({
         return styles.error;
       case EBannerStyleType.SUCCESS:
         return styles.success;
+      case EBannerStyleType.BRAND:
+        return styles.brand;
       case EBannerStyleType.CUSTOM:
-        return { ...styles.info, ...customStyles };
+        return { ...styles.brand, ...customStyles };
       default:
         return styles.info;
     }
