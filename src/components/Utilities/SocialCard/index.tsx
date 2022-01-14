@@ -18,13 +18,12 @@ const SocialCard = ({
   },
 }: IProps) => {
   return (
-    <div style={{ width, height }} className="bg-blue-500 text-9xl">
-      <div className="bg-purple-500 flex items-center text-white px-2">
+    <div style={{ width, height }} className="bg-blue-500 text-8xl">
+      <div className="bg-purple-500 flex items-center text-white px-2 pt-2 pb-3">
         <span>Adrian's Blog</span>
       </div>
       <div className="p-2">
         <h1>{title}</h1>
-        <p>{description}</p>
       </div>
     </div>
   );
