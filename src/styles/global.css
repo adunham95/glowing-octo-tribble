@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
+body{
+    @apply bg-brand-light-400 text-brand-dark-500 dark:text-brand-light-500 dark:bg-brand-dark-400
+}
+
 @layer utilities {
     .skip-link {
         @apply not-sr-only rounded ring-1 ring-brand-500 py-1 px-2 mt-1 ml-1 text-brand-400 bg-brand-light-500 dark:bg-brand-dark-500 absolute;
