@@ -48,6 +48,7 @@ const SEO = ({ title, description, image, article = false }: IProps) => {
       <Helmet titleTemplate={titleTemplate}>
         <title>{seo.title}</title>
         <meta name="description" content={seo.description} />
+        <link rel="icon" type="image/x-icon" href="/icons/favicon.ico" />
         {/* <meta name="image" content={seo.image} /> */}
         {seo.url && <meta property="og:url" content={seo.url} />}
         {(article ? true : null) && (

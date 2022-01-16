@@ -57,7 +57,6 @@ exports.createPages = (
   if (!process.env.gatsby_executing_command.includes('develop')) return;
 
   return graphql(query).then((result) => {
-    console.log('result', result);
     const existingSocialCards = [];
     dimensions.forEach((dimension) => {
       existingSocialCards.push(
