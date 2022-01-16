@@ -49,12 +49,14 @@ const Header = ({
           </div>
           <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start h-full mb-2">
             <div className="flex-shrink-0 flex items-center">
-              <span className="sm:pr-1">
-                <IconBrand />
+              <span className="sm:pr-1" aria-label={pageName}>
+                <Link to="/">
+                  <IconBrand />
+                </Link>
               </span>
-              <span className="text-brand-dark-500 dark:text-brand-light-500 hidden sm:block">
+              {/* <span className="text-brand-dark-500 dark:text-brand-light-500 hidden sm:block">
                 {pageName}
-              </span>
+              </span> */}
             </div>
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4 h-full">

@@ -7,7 +7,9 @@ interface IProps {
 const PostTitle = ({ title }: IProps) => {
   return (
     <div>
-      <h1>{title}</h1>
+      <h1 className=" text-brand-dark-500 dark:text-brand-light-500">
+        {title}
+      </h1>
     </div>
   );
 };
